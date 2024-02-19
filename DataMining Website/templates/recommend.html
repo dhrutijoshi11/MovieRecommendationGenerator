@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Movie Recommendations</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://images.pexels.com/photos/2310713/pexels-photo-2310713.jpeg?cs=srgb&dl=pexels-eberhard-grossgasteiger-2310713.jpg&fm=jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .main-container {
+            margin-top: 5%;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            color: #333;
+        }
+
+        .img-thumbnail {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+
+        .selected-genres ul {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .selected-genres ul li {
+            display: inline;
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container main-container animate__animated animate__bounceIn">
+        <h1 class="mb-5">Your Recommendations</h1>
+        <div class="main-movie">
+            <h2 class="mb-3">{{ main_movie }}</h2>
+            <img src="{{ main_poster }}" class="img-fluid rounded mx-auto d-block mb-3" alt="{{ main_movie }}">
+        </div>
+
+        <div class="selected-genres">
+            <h3 class="mb-3">Selected Genres</h3>
+            <ul>
+                {% for genre in selected_genres %}
+                <li>{{ genre }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="related-movies">
+            <h3 class="mb-3">Related Movies</h3>
+            <div class="row">
+                {% for movie, poster in related_movies %}
+                <div class="col-md-4 mb-4">
+                    <h4>{{ movie }}</h4>
+                    <img src="{{ poster }}" class="img-fluid rounded mx-auto d-block img-thumbnail mb-3" alt="{{ movie }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{{ url_for('home') }}" class="btn btn-dark btn-lg">Start Over</a>
+        </div>
+    </div>
+</body>
+
+</html>
