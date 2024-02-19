@@ -1,4 +1,4 @@
-#ReviewFlix: Social-Media Powered Movie Recommender with Sentiment and Emotion Analysis
+# ReviewFlix: Social-Media Powered Movie Recommender with Sentiment and Emotion Analysis
 
 Introduction
 
